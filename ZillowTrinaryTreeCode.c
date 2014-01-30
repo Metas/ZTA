@@ -145,9 +145,11 @@ struct node * deleteNode(struct node *S,int dataVal)
 		{
 			printf("EQUAL linkPRESENT\n");
 			//replace with equal data
+			temp = S->equal;
+			S->data =temp->data;
 			S->equal =deleteNode(S->equal,dataVal);
 		}
-		if(S->less && S->greater) //two children
+		else if(S->less && S->greater) //two children
 		{
 			printf("TWO CHILDREN\n");
 			//replace with largest in less subtree
@@ -212,7 +214,7 @@ main()
 	deleteNode(root,5);
 	traverseAndDisplay(root);
 	
-	deleteNode(root,7);
+	deleteNode(root,2);
 	traverseAndDisplay(root);
 
 	deleteTree(root);
