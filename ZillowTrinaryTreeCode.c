@@ -141,6 +141,12 @@ struct node * deleteNode(struct node *S,int dataVal)
 	{
 		//we found the element
 		printf("DATA in Left%d\n",left->data);
+		if(S->equal)
+		{
+			printf("EQUAL linkPRESENT\n");
+			//replace with equal data
+			S->equal =deleteNode(S->equal,dataVal);
+		}
 		if(S->less && S->greater) //two children
 		{
 			printf("TWO CHILDREN\n");
@@ -203,7 +209,7 @@ main()
 
 	traverseAndDisplay(root);
 
-	deleteNode(root,4);
+	deleteNode(root,5);
 	traverseAndDisplay(root);
 	
 	deleteNode(root,7);
